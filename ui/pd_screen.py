@@ -211,6 +211,7 @@ def next_pd_button(id_pd_card):
     def set_true_state_variable():
         st.session_state["order_pd_choice_sets"].pop(0)
         st.session_state["time_list"].append(time.time())
+        st.session_state["pd_count"] += 1
 
     st.button(
         label="Siguiente",
@@ -220,7 +221,8 @@ def next_pd_button(id_pd_card):
     )
 
 def generate_pd_screen(id_pd_card):
-    st.title(f"PD {id_pd_card}")
+    pd_count = st.session_state["pd_count"]
+    st.title(f"PD {pd_count}")
 
     # Perfil de Elección
     niveles_a, niveles_b = get_nivels(id_pd_card)
