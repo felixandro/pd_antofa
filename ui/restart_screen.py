@@ -39,7 +39,7 @@ def change_screen1_responses_button():
         st.session_state.clear()
 
     button = st.button(
-        label="Cambiar Encuestador y/o Lugar de Encuesta",
+        label="Cambiar Encuestador",
         key="change_screen1_responses_button",
         use_container_width= True,
         on_click=restart_all_state_variable
