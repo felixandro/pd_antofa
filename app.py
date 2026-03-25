@@ -79,6 +79,10 @@ if "time_list" not in st.session_state:
 if "responses_sent" not in st.session_state:
     st.session_state["responses_sent"] = False
 
+# Variable para llevar la cuenta de las tarjetas PD respondidas
+if "pd_count" not in st.session_state:
+    st.session_state["pd_count"] = 1
+
 # --------------------------------------------------
 # Screen 1 // General Screen // Encuestador y Lugar de Encuesta
 # --------------------------------------------------
