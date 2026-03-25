@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import geopandas as gpd
+import random
 
 def get_modo_PR():
     modo_PR = st.session_state["responses"]["screen3"].get("modo_PR", False)
@@ -242,7 +243,7 @@ def compute_te_pd_new_mode(te1):
 def generate_choice_set_df():
 
     modo_PR = get_modo_PR()
-    modo_nuevo = "Modo Nuevo"
+    modo_nuevo = random.choice(["Tren", "Tranvía", "Corredor de Buses"])
     nivels_PR = get_nivels_PR()
     nivels_api = get_nivels_api()
 
