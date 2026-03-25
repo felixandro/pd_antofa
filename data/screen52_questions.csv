@@ -1,0 +1,11 @@
+﻿type;title;number_input;number_input;number_input;number_input;number_input
+key;;tca_txb_PR;te_txb_PR;tv_txb_PR;tce_txb_PR;c_txb_PR
+label;Viaje en Taxibus;¿Cuánto tiempo debe caminar hasta el paradero?;Una vez llega al paradero ¿Cuánto tiempo debe esperar el Taxibus?;¿Cuánto tiempo pasa a bordo del Taxibus?;Una vez baja del Taxibus ¿Cuánto tiempo debe caminar hasta su destino?;¿Cuánto paga por el pasaje en Taxibus?
+label2;;Minutos caminando desde su origen hasta el paradero;Minutos de espera en el paradero hasta abordar el Taxibus;Minutos desde que sube al Taxibus hasta que baja de este;Minutos caminando desde que baja del Taxibus hasta su destino;Tarifa en pesos
+opcion_1;;1;1;1;1;0
+opcion_2;;100;100;100;100;10000
+opcion_3;;;;;;
+opcion_4;;;;;;
+opcion_5;;;;;;
+opcion_6;;;;;;
+opcion_7;;;;;;

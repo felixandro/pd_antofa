@@ -1,0 +1,11 @@
+﻿type;title;selectbox;selectbox
+key;;proposito;modo_PR
+label;Características del Viaje;¿Cuál es el Propósito de su viaje?;¿En modo de transporte realiza su viaje?
+label2;;;
+opcion_1;;Trabajo;Auto Particular
+opcion_2;;Estudio;Taxibus
+opcion_3;;Otro;Taxicolectivo
+opcion_4;;;
+opcion_5;;;
+opcion_6;;;
+opcion_7;;;
