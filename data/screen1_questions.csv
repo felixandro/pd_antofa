@@ -1,6 +1,6 @@
 ﻿type;title;selectbox
 key;;id_encuestador
-label;Encuestador y Lugar de Encuesta;Encuestador
+label;Encuestador;Encuestador
 label2;;
 opcion_1;;Encuestador1
 opcion_2;;Encuestador2
