@@ -2,10 +2,7 @@
 key;;id_encuestador
 label;Encuestador;Encuestador
 label2;;
-opcion_1;;Encuestador1
-opcion_2;;Encuestador2
-opcion_3;;Encuestador3
-opcion_4;;Encuestador4
-opcion_5;;Encuestador5
-opcion_6;;Encuestador6
-opcion_7;;Encuestador7
+opcion_1;;Raquel Arias
+opcion_2;;Wallas Roldan
+opcion_3;;Doyel Roldan
+opcion_4;;Bianca Fernández
