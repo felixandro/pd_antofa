@@ -73,7 +73,7 @@ def compute_c_pd_current_mode(modo_PR,nivels_PR, nivels_api):
 
     elif modo_PR == "Taxibus":
         c_pr = nivels_PR["c_txb_PR"]
-        c_pd = 630
+        c_pd = 650
     
     elif modo_PR == "Taxicolectivo":
         c_pr = nivels_PR["c_txc_PR"]
@@ -103,7 +103,7 @@ def compute_tv_pd_current_mode(modo_PR, nivels_PR, nivels_api):
         tv_pr = nivels_PR["tv_txc_PR"]
         tv_api = nivels_api["tv_liv"] # La API no tiene tv para taxicolectivo, se usa el de liviano
 
-    tv_pd = int((tv_pr + tv_api) / 2)
+    tv_pd = int((0 * tv_pr + 2 * tv_api) / 2)
     tv_pd_list = [tv_pd] * 8
     return tv_pd_list
 
@@ -118,13 +118,13 @@ def compute_tc_pd_current_mode(modo_PR, nivels_PR, nivels_api):
 
         tc_pr = nivels_PR["tca_txb_PR"] + nivels_PR["tce_txb_PR"]
         tc_api = nivels_api["tca_txb"] + nivels_api["tce_txb"]
-        tc_pd = int((tc_pr + tc_api) / 2)
+        tc_pd = int((0 * tc_pr + 2 * tc_api) / 2)
 
     elif modo_PR == "Taxicolectivo":
             
         tc_pr = nivels_PR["tca_txc_PR"] + nivels_PR["tce_txc_PR"]
         tc_api = nivels_api["tca_txb"] + nivels_api["tce_txb"] # La API no tiene tc para taxicolectivo, se usa el de taxibus
-        tc_pd = int((tc_pr + tc_api) / 2)
+        tc_pd = int((0.5 * tc_pr + 1.5 * tc_api) / 2)
 
     tc_pd_list = [tc_pd] * 8
     return tc_pd_list
@@ -155,7 +155,7 @@ def compute_te_pd_current_mode(modo_PR, nivels_PR):
 
 def compute_c_pd_new_mode():
     columna_c_pd_list = [0,0,1,1,2,2,1,1]
-    niveles_c_pd = {0: 1000, 1: 800, 2: 630}
+    niveles_c_pd = {0: 1200, 1: 850, 2: 650}
     c_pd_list = [niveles_c_pd[c] for c in columna_c_pd_list]
     return c_pd_list
 
