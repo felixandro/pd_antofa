@@ -322,7 +322,7 @@ def perfil_eleccion_hibrido_flechas(
         flex-wrap: wrap;
     }
     .pd-h-tag {
-        font-size: 13px;
+        font-size: 10px;
         font-weight: 600;
         padding: 3px 9px;
         border-radius: 999px;
@@ -344,7 +344,7 @@ def perfil_eleccion_hibrido_flechas(
         align-items: stretch;
     }
     .pd-h-col-title {
-        font-size: 22px;
+        font-size: 16px;
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.05em;
@@ -368,12 +368,12 @@ def perfil_eleccion_hibrido_flechas(
         padding-bottom: 0;
     }
     .pd-h-label {
-        font-size: 17px;
+        font-size: 13px;
         color: #777;
         margin-bottom: 3px;
     }
     .pd-h-value {
-        font-size: 32px;
+        font-size: 24px;
         font-weight: 600;
         line-height: 1.2;
         color: #222;
@@ -381,7 +381,7 @@ def perfil_eleccion_hibrido_flechas(
         text-align: center;
     }
     .attr-unit {
-        font-size: 14px;
+        font-size: 11px;
         font-weight: 400;
         color: #666;
     }
@@ -395,7 +395,7 @@ def perfil_eleccion_hibrido_flechas(
         gap: 8px;
     }
     .pd-h-delta {
-        font-size: 18px;
+        font-size: 14px;
         font-weight: 600;
         line-height: 1;
         text-align: center;
@@ -422,7 +422,7 @@ def perfil_eleccion_hibrido_flechas(
         border: 0.5px solid #d8d8d8;
     }
     .pd-h-no-image {
-        font-size: 13px;
+        font-size: 10px;
         color: #8a8a8a;
         font-weight: 500;
     }
@@ -568,7 +568,7 @@ def tabla_comparativa_costos(
         align-items: stretch;
     }
     .pd-c-col-title {
-        font-size: 22px;
+        font-size: 16px;
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.05em;
@@ -582,12 +582,12 @@ def tabla_comparativa_costos(
         padding: 10px 0;
     }
     .pd-c-label {
-        font-size: 17px;
+        font-size: 13px;
         color: #777;
         margin-bottom: 4px;
     }
     .pd-c-value {
-        font-size: 32px;
+        font-size: 24px;
         font-weight: 600;
         line-height: 1.2;
         color: #222;
@@ -604,7 +604,7 @@ def tabla_comparativa_costos(
         gap: 8px;
     }
     .pd-c-delta {
-        font-size: 18px;
+        font-size: 14px;
         font-weight: 600;
         line-height: 1;
         text-align: center;
@@ -793,7 +793,7 @@ def generate_pd_screen(id_pd_card):
     st.title(f"PD {pd_count}")
 
     st.markdown(
-        "<p style='font-size: 22px; margin-bottom: 1rem;'>Suponga que repite su viaje actual y tiene las siguientes alternativas:</p>",
+        "<p style='font-size: 16px; margin-bottom: 1rem;'>Suponga que repite su viaje actual y tiene las siguientes alternativas:</p>",
         unsafe_allow_html=True
     )
 
@@ -825,7 +825,7 @@ def generate_pd_screen(id_pd_card):
 
     st.markdown(
         (
-            "<p style='font-size: 22px; margin-bottom: 1rem;'>"
+            "<p style='font-size: 16px; margin-bottom: 1rem;'>"
             f"Si el <strong>{alt_a}</strong> le cuesta <strong>{format_currency_safe(costo_a)}</strong> "
             f"¿Utilizaría el <strong>{alt_b}</strong> si costara <strong>{format_currency_safe(costo_b_ref)}</strong>?"
             "</p>"
@@ -859,7 +859,7 @@ def generate_pd_screen(id_pd_card):
 
         st.markdown(
             (
-                "<p style='font-size: 22px; margin-bottom: 1rem; text-align: center;'>"
+                "<p style='font-size: 16px; margin-bottom: 1rem; text-align: center;'>"
                 f"Seleccionaste <strong>{label_alt_chosen}</strong>"
                 "</p>"
             ),
@@ -872,7 +872,7 @@ def generate_pd_screen(id_pd_card):
 
             st.markdown(
                 (
-                    "<p style='font-size: 22px; margin-bottom: 1rem; text-align: center;'>"
+                    "<p style='font-size: 16px; margin-bottom: 1rem; text-align: center;'>"
                     f"¿Y utilizaría <strong>{label_b}</strong> si tuviera que pagar "
                     f"<strong>{format_currency_safe(costo_b_alto)}</strong>?"
                     "</p>"
@@ -891,7 +891,7 @@ def generate_pd_screen(id_pd_card):
 
             st.markdown(
                 (
-                    "<p style='font-size: 22px; margin-bottom: 1rem; text-align: center;'>"
+                    "<p style='font-size: 16px; margin-bottom: 1rem; text-align: center;'>"
                     f"¿Y utilizaría <strong>{label_b}</strong> si tuviera que pagar "
                     f"<strong>{format_currency_safe(costo_b_bajo)}</strong>?"
                     "</p>"
