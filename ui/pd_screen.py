@@ -363,7 +363,7 @@ def perfil_eleccion_hibrido_flechas(
         padding: 8px 0;
     }
     .pd-h-cell-image {
-        min-height: 288px;
+        min-height: 160px;
         padding-top: 8px;
         padding-bottom: 0;
     }
@@ -413,7 +413,7 @@ def perfil_eleccion_hibrido_flechas(
         width: 100% !important;
         max-width: 100%;
         height: auto;
-        min-height: 268px;
+        min-height: 140px;
         aspect-ratio: 16 / 9;
         display: block;
         align-self: stretch;
@@ -781,8 +781,6 @@ def get_costo_b_list(alternativa):
     # Fallback para alternativas no mapeadas.
     return [650, 1000, 1500]
 
-
-
 def generate_pd_screen(id_pd_card):
     def format_currency_safe(value):
         try:
@@ -841,7 +839,6 @@ def generate_pd_screen(id_pd_card):
         nombre_modo_actual=alt_a,
         nombre_modo_nuevo=alt_b,
     )
-
 
     # Alternative 1 Button
     #label_a = niveles_a[0]
