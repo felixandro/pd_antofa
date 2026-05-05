@@ -155,7 +155,7 @@ def compute_te_pd_current_mode(modo_PR, nivels_PR):
 
 def compute_c_pd_new_mode():
     columna_c_pd_list = [0,0,1,1,2,2,1,1]
-    niveles_c_pd = {0: 1200, 1: 850, 2: 650}
+    niveles_c_pd = {0: "x", 1: "x", 2: "x"}
     c_pd_list = [niveles_c_pd[c] for c in columna_c_pd_list]
     return c_pd_list
 
@@ -178,7 +178,7 @@ def compute_tc_pd_new_mode():
     tc_destino = identify_isochrone(destino) 
     tc_total = tc_origen + tc_destino if tc_origen + tc_destino <= 10 else 10
 
-    columna_tc_pd_list = [0,1,0,1,1,0,1,0]
+    columna_tc_pd_list = [0,0,0,0,1,1,1,1]
     
     niveles_tc_pd = {0: tc_total - 4, 
                      1: tc_total}
@@ -186,10 +186,9 @@ def compute_tc_pd_new_mode():
     tc_pd_list = [niveles_tc_pd[tc] for tc in columna_tc_pd_list]
     return tc_pd_list
 
-
 def compute_tv_pd_new_mode(modo_PR, tv1, tc1, tc2_mean, niveles_api):
 
-    columna_tv_pd_list = [0,1,0,1,0,1,0,1]
+    columna_tv_pd_list = [0,0,1,1,0,0,1,1]
     t1 = tv1 + tc1 if modo_PR != "Auto Particular" else tv1
 
     tv_liv_api = niveles_api["tv_liv"]
@@ -220,10 +219,9 @@ def compute_tv_pd_new_mode(modo_PR, tv1, tc1, tc2_mean, niveles_api):
 
     return tv_pd_list
     
-
 def compute_te_pd_new_mode(te1):
 
-    columna_te_pd_list = [0,1,1,0,0,1,1,0]
+    columna_te_pd_list = [0,1,0,1,0,1,0,1]
 
     if te1 <= 7:
         niveles_te_pd = {0: 4, 
@@ -248,6 +246,7 @@ def generate_choice_set_df():
     nivels_api = get_nivels_api()
 
     tj_list = list(range(1, 9))
+    block_list = [1,2,1,2,2,1,2,1]
 
     label1_list = [modo_PR] * 8
     c1_list = compute_c_pd_current_mode(modo_PR, nivels_PR, nivels_api)
@@ -263,6 +262,7 @@ def generate_choice_set_df():
 
     df_dict = {
         "tj": tj_list,
+        "block": block_list,
         "label1": label1_list,
         "c1": c1_list,
         "tv1": tv1_list,
@@ -279,8 +279,11 @@ def generate_choice_set_df():
     df.set_index("tj", inplace=True)
 
     df_modified = apply_deltas_to_choice_set_df(modo_PR, df)
+    
+    block = random.choice([1,2])
+    df_block = df_modified[df_modified["block"] == block].copy()
 
-    return df_modified
+    return df_block
 
 def apply_deltas_to_choice_set_df(modo_PR, df):
 
@@ -302,7 +305,7 @@ def apply_deltas_to_choice_set_df(modo_PR, df):
     df_modified["tc1"] = df_modified["tc1"] + delta_tc
     df_modified["te1"] = df_modified["te1"] + delta_te if modo_PR != "Auto Particular" else df_modified["te1"]
 
-    df_modified["c2"] = df_modified["c2"] + delta_c
+    #df_modified["c2"] = df_modified["c2"] + delta_c
     df_modified["tv2"] = df_modified["tv2"] + delta_tv
     df_modified["tc2"] = df_modified["tc2"] + delta_tc
     df_modified["te2"] = df_modified["te2"] + delta_te if modo_PR != "Auto Particular" else df_modified["te2"]
@@ -311,7 +314,7 @@ def apply_deltas_to_choice_set_df(modo_PR, df):
 
 def compute_differences(df):
     df_diff = pd.DataFrame()
-    df_diff['delta_c'] = df['c2'] - df['c1']
+    #df_diff['delta_c'] = df['c2'] - df['c1']
     df_diff['delta_tv'] = df['tv2'] - df['tv1']
     df_diff['delta_tc'] = df['tc2'] - df['tc1']
     df_diff['delta_te'] = df['te2'] - df['te1']

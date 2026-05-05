@@ -144,6 +144,8 @@ if st.session_state["od_screen_completed"] and not screen_5x_completed:
     elif modo_PR == "Taxicolectivo":
         gs.generate_general_screen(id_screen=53)
 
+    #st.session_state["screen6_completed"] = True
+
 
 # --------------------------------------------------
 # Screen 6 // General Screen // Introdución Preferencias Declaradas
@@ -152,6 +154,7 @@ if st.session_state["od_screen_completed"] and not screen_5x_completed:
 if screen_5x_completed and not st.session_state["screen6_completed"]:
 
     gs.generate_general_screen(id_screen=6)
+
 
 # --------------------------------------------------
 # Screen 7 .. 14 // PD Screen // Perfiles de Elección PDs
@@ -165,7 +168,20 @@ if st.session_state["screen6_completed"] and len(st.session_state["order_pd_choi
         st.session_state["choice_set_df"] = generate_choice_set_df()
         st.session_state["choice_set_df_differences"] = compute_differences(st.session_state["choice_set_df"])
 
-    pds.generate_pd_screen(st.session_state["order_pd_choice_sets"][0])
+    tj_list = st.session_state["choice_set_df"].index.tolist()
+    current_tj = st.session_state["order_pd_choice_sets"][0]
+
+    if current_tj in tj_list:
+        pds.generate_pd_screen(st.session_state["order_pd_choice_sets"][0])
+
+    else:
+        st.session_state["order_pd_choice_sets"].pop(0)
+        st.rerun()  
+
+#st.write(current_tj)
+#st.write(st.session_state["order_pd_choice_sets"])
+
+
 
 # --------------------------------------------------
 # Screen 15 // General Screen // Categoría de Usuario
@@ -184,8 +200,8 @@ if st.session_state["screen15_completed"]:
     process_time_list()
 
     #Enviar Respuestas a BBDD online
-    if not st.session_state["responses_sent"]:
-        send_to_database(st.session_state["responses"])
+    #if not st.session_state["responses_sent"]:
+    #    send_to_database(st.session_state["responses"])
 
     rs.generate_restart_screen()
 
