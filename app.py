@@ -200,8 +200,8 @@ if st.session_state["screen15_completed"]:
     process_time_list()
 
     #Enviar Respuestas a BBDD online
-    #if not st.session_state["responses_sent"]:
-    #    send_to_database(st.session_state["responses"])
+    if not st.session_state["responses_sent"]:
+        send_to_database(st.session_state["responses"])
 
     rs.generate_restart_screen()
 
