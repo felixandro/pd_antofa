@@ -770,8 +770,14 @@ def get_figure_path(alternativa):
         return "data/figuras/corredor.png"
 
 def get_costo_b_list(alternativa):
-    
-    u = random.uniform(0, 1)
+
+    if "u" not in st.session_state["responses"]:
+        st.session_state["responses"]["u"] = random.uniform(0, 1)
+
+    u = st.session_state["responses"]["u"]
+
+    print("Generación Costos B")
+    print(f"Alternativa: {alternativa}", f"u: {u:.2f}")
     
     if alternativa == "Tren":
         if u < 0.6:
@@ -793,7 +799,8 @@ def get_costo_b_list(alternativa):
             cb_list = [750, 900, 1100]
 
     # Fallback para alternativas no mapeadas.
-    cb_list = [650, 1000, 1500]
+    else:
+        cb_list = [650, 1000, 1500]
 
     for i in range(len(cb_list)):
         st.session_state["responses"]["choice_dict"][f"cb_{i}"] = cb_list[i]
