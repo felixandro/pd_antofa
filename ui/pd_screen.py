@@ -2,6 +2,7 @@ import streamlit as st
 import time
 import base64
 from pathlib import Path
+import random
 
 def initialize_pd_responses():
 
@@ -769,17 +770,35 @@ def get_figure_path(alternativa):
         return "data/figuras/corredor.png"
 
 def get_costo_b_list(alternativa):
+    
+    u = random.uniform(0, 1)
+    
     if alternativa == "Tren":
-        return [650, 1000, 1500]
+        if u < 0.6:
+            cb_list = [650, 1000, 1500]
+        else:
+            cb_list = [850, 1200, 1700]
     
     elif alternativa == "Tranvía":
-        return [650, 1000, 1500]
+        if u < 0.6:
+            cb_list = [650, 1000, 1500]
+        
+        else:
+            cb_list = [850, 1200, 1700]
         
     elif alternativa == "Corredor de Buses":
-        return [650, 800, 1000]
+        if u < 0.6:
+            cb_list = [650, 800, 1000]
+        else:
+            cb_list = [750, 900, 1100]
 
     # Fallback para alternativas no mapeadas.
-    return [650, 1000, 1500]
+    cb_list = [650, 1000, 1500]
+
+    for i in range(len(cb_list)):
+        st.session_state["responses"]["choice_dict"][f"cb_{i}"] = cb_list[i]
+    
+    return cb_list
 
 def generate_pd_screen(id_pd_card):
     def format_currency_safe(value):
@@ -916,7 +935,7 @@ def generate_pd_screen(id_pd_card):
 
             st.markdown(
                 (
-                    "<p style='font-size: 22px; margin-bottom: 1rem; text-align: center;'>"
+                    "<p style='font-size: 16px; margin-bottom: 1rem; text-align: center;'>"
                     f"Seleccionaste <strong>{label_alt_chosen_2}</strong>"
                     "</p>"
                 ),
